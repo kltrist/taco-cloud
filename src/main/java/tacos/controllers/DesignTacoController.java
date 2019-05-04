@@ -1,28 +1,21 @@
 package tacos.controllers;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.stream.Collectors;
-
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.jdbc.JdbcTemplateAutoConfiguration;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import lombok.extern.slf4j.Slf4j;
-
 import tacos.data.repositories.IngredientRepository;
 import tacos.data.repositories.TacoRepository;
 import tacos.entity.Ingredient;
-import tacos.entity.Ingredient.*;
+import tacos.entity.Ingredient.Type;
 import tacos.entity.Order;
 import tacos.entity.Taco;
-import tacos.entity.Design;
-
 import javax.validation.Valid;
-
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Slf4j
 @Controller
@@ -59,7 +52,7 @@ public class DesignTacoController {
                     filterByType(ingredients, type)
             );
         }
-        model.addAttribute("design", new Taco());
+         model.addAttribute("design", new Taco());
         return "design";
     }
 
@@ -81,6 +74,5 @@ public class DesignTacoController {
                 .filter(x -> x.getType().equals(type))
                 .collect(Collectors.toList());
     }
-
 
 }
