@@ -1,4 +1,4 @@
-package tacos.controllers;
+package tacos.controller;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -6,8 +6,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
-import tacos.data.repositories.IngredientRepository;
-import tacos.data.repositories.TacoRepository;
+import tacos.data.repository.IngredientRepository;
+import tacos.data.repository.TacoRepository;
 import tacos.entity.Ingredient;
 import tacos.entity.Ingredient.Type;
 import tacos.entity.Order;

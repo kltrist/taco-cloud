@@ -1,4 +1,4 @@
-package tacos.data.repositories;
+package tacos.data.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import tacos.entity.Order;
