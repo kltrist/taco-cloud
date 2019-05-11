@@ -8,9 +8,9 @@ import org.springframework.stereotype.Service;
 import tacos.data.repository.UserRepository;
 import tacos.entity.User;
 
+
 @Service
 public class UserRepositoryUserDetailsService implements UserDetailsService {
-
 
     private UserRepository userRepo;
 
@@ -21,7 +21,6 @@ public class UserRepositoryUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
         User user = userRepo.findByUsername(s);
         if (user != null)
             return user;

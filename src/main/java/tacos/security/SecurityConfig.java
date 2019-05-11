@@ -10,8 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.crypto.password.StandardPasswordEncoder;
 
 @Configuration
 @EnableWebSecurity
@@ -19,11 +19,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Qualifier("userRepositoryUserDetailsService")
     @Autowired
-    private UserDetailsService userDetailsService;
+    UserDetailsService userDetailsService;
 
     @Bean
     public PasswordEncoder encoder() {
-        return new StandardPasswordEncoder("53cr3t");
+        return new BCryptPasswordEncoder();
     }
 
     @Override
@@ -38,7 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/design", "/orders")
+                .antMatchers("/orders/**", "/design")
                 .hasRole("USER")
                 .antMatchers("/", "/**")
                 .permitAll()
@@ -47,10 +47,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/design")
-                .loginProcessingUrl("/authenticate")
-                .usernameParameter("user")
-                .passwordParameter("pwd");
 
-
+                .and()
+                .logout()
+                .permitAll()
+                .logoutSuccessUrl("/");
     }
 }

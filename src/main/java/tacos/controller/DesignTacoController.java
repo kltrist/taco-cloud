@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 @SessionAttributes("order")
 public class DesignTacoController {
 
-    private final IngredientRepository ingredientRepo;
+    private IngredientRepository ingredientRepo;
     private TacoRepository designRepo;
 
     @Autowired
