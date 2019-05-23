@@ -17,9 +17,11 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Qualifier("userRepositoryUserDetailsService")
-    @Autowired
-    UserDetailsService userDetailsService;
+    private final UserDetailsService userDetailsService;
+
+    public SecurityConfig(@Qualifier("userRepositoryUserDetailsService") UserDetailsService userDetailsService) {
+        this.userDetailsService = userDetailsService;
+    }
 
     @Bean
     public PasswordEncoder encoder() {
@@ -38,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/orders/**", "/design")
+                .antMatchers("/orders/current", "/design/**")
                 .hasRole("USER")
                 .antMatchers("/", "/**")
                 .permitAll()
@@ -47,6 +49,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .defaultSuccessUrl("/design")
+
 
                 .and()
                 .logout()

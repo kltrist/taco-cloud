@@ -74,6 +74,7 @@
           th:if="${#fields.hasErrors('ccCVV')}"
           th:errors="*{ccCVV}">CC CVV Error</span>
     <br/>
+    <input type="hidden" name="_csrf" th:value="${_csrf.token}"/>
     <input type="submit" value="Submit order"/>
 </form>
 </body>

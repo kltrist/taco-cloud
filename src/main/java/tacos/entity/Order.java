@@ -1,6 +1,6 @@
 package tacos.entity;
 
-import lombok.Data;
+import lombok.*;
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import javax.persistence.*;
@@ -9,7 +9,6 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Objects;
 
 @Data
 @Entity
@@ -22,7 +21,9 @@ public class Order implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
+    @ManyToOne(targetEntity = User.class)
+    @JoinTable(name = "order_user")
+    @JoinColumn(name = "user_id", nullable = false)
     User user;
 
     private Date placedAt;
@@ -46,7 +47,7 @@ public class Order implements Serializable {
     private String zip;
 
     @CreditCardNumber(message = "Not a valid credit card number")
-    protected String ccNumber;
+    private String ccNumber;
 
     @Pattern(regexp = "^(0[1-9]|1[0-2])([/])([1-9][0-9])$",
             message = "Must be formatted MM/YY")
@@ -55,12 +56,14 @@ public class Order implements Serializable {
     @Digits(integer = 3, fraction = 0, message = "Invalid CVV")
     private String ccCVV;
 
-    public void addDesign(Taco design) {
-        this.tacos.add(design);
-    }
-
     @PrePersist
     void placedAt() {
         this.placedAt = new Date();
     }
+
+
+    public void addDesign(Taco design) {
+        this.tacos.add(design);
+    }
+
 }
