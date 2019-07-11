@@ -1,7 +1,6 @@
-package tacos.security;
+package by.grsu.edu.security;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -40,7 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/orders/current", "/design/**")
+                .antMatchers("/orders/current")
                 .hasRole("USER")
                 .antMatchers("/", "/**")
                 .permitAll()

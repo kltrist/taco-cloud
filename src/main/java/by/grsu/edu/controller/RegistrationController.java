@@ -1,15 +1,15 @@
-package tacos.controller;
+package by.grsu.edu.controller;
 
+import by.grsu.edu.repository.UserRepository;
+import by.grsu.edu.security.RegistrationForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import tacos.data.repository.UserRepository;
-import tacos.security.RegistrationForm;
+import org.springframework.web.bind.annotation.RestController;
 
-@Controller
+@RestController
 @RequestMapping("/register")
 public class RegistrationController {
 

@@ -1,6 +1,6 @@
 # Taco-cloud 
 
-Taco-cloud is application online food ordering service
+Taco-cloud is application online food ordering by.grsu.edu.service
 
 
 ## Usage

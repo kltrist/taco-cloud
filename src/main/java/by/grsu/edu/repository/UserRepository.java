@@ -1,8 +1,8 @@
-package tacos.data.repository;
+package by.grsu.edu.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import tacos.entity.User;
+import by.grsu.edu.entity.User;
 
 @Repository
 public interface UserRepository extends CrudRepository<User,Long> {

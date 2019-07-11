@@ -1,4 +1,4 @@
-package tacos.entity;
+package by.grsu.edu.entity;
 
 import lombok.*;
 import org.hibernate.validator.constraints.CreditCardNumber;

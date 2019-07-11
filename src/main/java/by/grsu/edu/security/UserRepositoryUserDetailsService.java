@@ -1,12 +1,12 @@
-package tacos.security;
+package by.grsu.edu.security;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import tacos.data.repository.UserRepository;
-import tacos.entity.User;
+import by.grsu.edu.repository.UserRepository;
+import by.grsu.edu.entity.User;
 
 
 @Service

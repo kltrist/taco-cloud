@@ -1,4 +1,4 @@
-package tacos.web;
+package by.grsu.edu.web;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

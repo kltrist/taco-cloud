@@ -1,4 +1,4 @@
-package tacos.web;
+package by.grsu.edu.web;
 
 import org.springframework.context.annotation.Configuration;
 import

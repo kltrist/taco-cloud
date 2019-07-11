@@ -1,4 +1,4 @@
-package tacos.entity;
+package by.grsu.edu.entity;
 
 import lombok.AccessLevel;
 import lombok.Data;
@@ -11,7 +11,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import javax.persistence.*;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.List;
 
 
 @Entity

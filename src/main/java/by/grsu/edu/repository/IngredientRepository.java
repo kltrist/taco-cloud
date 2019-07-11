@@ -1,8 +1,8 @@
-package tacos.data.repository;
+package by.grsu.edu.repository;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import tacos.entity.Ingredient;
+import by.grsu.edu.entity.Ingredient;
 
 @Repository
 public interface IngredientRepository extends CrudRepository<Ingredient, String> {

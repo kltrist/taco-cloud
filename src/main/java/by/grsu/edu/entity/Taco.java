@@ -1,6 +1,8 @@
-package tacos.entity;
+package by.grsu.edu.entity;
 
 import lombok.Data;
+import org.springframework.data.rest.core.annotation.RestResource;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -11,6 +13,7 @@ import java.util.List;
 
 @Entity
 @Data
+@RestResource(rel = "tacos",path = "tacos")
 public class Taco {
 
     @Id
